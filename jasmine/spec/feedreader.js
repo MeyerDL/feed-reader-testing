@@ -21,7 +21,6 @@ $(function() { // IIFE
         it('are defined', function() {
             expect(allFeeds).toBeDefined(); // checks to see that the allFeeds variable is defined 
             expect(allFeeds.length).not.toBe(0); // has a length of anything greater than 0
-        
         });
         /* test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
@@ -57,8 +56,8 @@ $(function() { // IIFE
 
          /* test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
+          * have two expectations: the menu display when
+          * clicked and hides when clicked again.
           */
 
           // test whether or not the menu toggles on and off
@@ -84,14 +83,15 @@ $(function() { // IIFE
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         beforeEach(function(done) { // pass a function that let our Jasmine test know that our before each function has “finished” and proceed with our test // use Jasmine's done
-            loadFeed(0, function(){
+            loadFeed(0, function(){ // beforeEach function, we call loadFeed() for the first index, 0.
                 done(); 
-            }); // beforeEach function, we call loadFeed() for the first index, 0.
+            }); 
         });
 
         it('completes work', function() {
             const feed = document.querySelector('.feed').querySelectorAll('.entry');
-            expect(feed.length > 0).toBe(true); // Inside test “completes work”, we “expect” the feed container’s children property to have a length property greater than 0 to be true.
+            expect(feed.length > 0).toBe(true); // must grab only the elements that have .entry as their class and are inside the .feed element.
+            // And then check that the number of elements you have selected is more than 0.
         });
     });
 
@@ -106,7 +106,7 @@ $(function() { // IIFE
          */
 
         beforeEach(function(done) { // pass a function that let our Jasmine test know that our before each function has “finished” and proceed with our test // use Jasmine's done
-            loadFeed(0, function() {
+            loadFeed(0, function() { // loadFeed() is an asynchronous function. 
                 Array.from(feed.children).forEach(function(entry){ // convert the feed’s children elements into an array list // loop over each “entry”
                     firstFeed.push(entry.innerText); // pushing the innerText to our firstFeed array
                 });
@@ -119,7 +119,7 @@ $(function() { // IIFE
         // test that when a new feed is loaded by loadFeed function that the content changes 
         it('content changes', function() {
             Array.from(feed.children).forEach(function(entry, index) { // convert the feed children into an array and loop over each “entry”
-                expect(firstFeed[index]).not.toBe(entry.innerText);  
+                expect(firstFeed[index]).not.toBe(entry.innerText); // load the second feed as a callback of the first loadFeed function.
             }); 
         });
     });
