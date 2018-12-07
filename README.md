@@ -10,12 +10,16 @@ In this project we are given a web-based application that reads RSS feeds and we
 
 Need to use Jasmine to write a number of tests against a pre-existing application
 
-### Getting started and how to run the application
+### Getting started
 
-- Download or clone the Feed Reader Testing starter code : https://github.com/udacity/frontend-nanodegree-feedreader
-- Open the folder in your favourite code editor
+- Download or clone the Feed Reader Testing starter code
 - Open the jasmine folder, then look for the spec folder. Inside the spec folder you will find the feedreader.js where I've written the   tests
 - Open the index.html file in your browser to review the functionality of the application
+
+### Running the application
+
+- Open the [index.html](index.html) file in your browser
+- I wrote the tests in the feedreader.js file and the test results will appears at the bottom of the index.html page.
 
 ## Jasmine Testing
 
